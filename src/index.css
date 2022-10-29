@@ -1,0 +1,177 @@
+body{
+  font-family: 'Fuzzy Bubbles', cursive;
+  font-family: 'Raleway', sans-serif;
+  background-color: silver;
+  background-image: url("/pictures/actionvance-t7EL2iG3jMc-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 130%;
+  width: 100%;
+  margin: 0;
+}
+
+/* --------------------header-------------- */
+.header{
+  color: white;
+  position: relative;
+}
+.header h1 {
+  margin: 0;
+  padding: 15px;
+  cursor: pointer;
+  width: fit-content;
+  background-image: linear-gradient(45deg, #d7f1ff,#00508a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: all 1s;
+}
+
+.header h1:hover{
+  color: #cae9ff;
+}
+
+.show-favourites{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color:#9ed6fe;
+  opacity: 0.7;
+  transition: all 1s;
+}
+.show-favourites:hover{
+  color: #d2eafb;
+  opacity: 1;
+}
+
+/* --------------------Home------------------- */
+.container {
+  color: rgb(199, 199, 199);
+}
+
+.container-body{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  margin: 60px auto;
+  width: fit-content;
+  padding: 10px;
+}
+
+.launchCard{
+  
+  border: solid 1px rgba(186, 186, 186, 0.645);
+  border-radius: 15px;
+  max-width: 20%;
+  min-width: 20%;
+  padding: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  position: relative;
+}
+
+.launchCard:hover{
+  background-color: rgba(141, 141, 141, 0.136);  
+  color: rgb(255, 255, 255);
+  transform: scale(1.1);
+  box-shadow: 1px 1px 15px 3px rgba(199, 199, 199, 0.258);
+
+}
+.launchCard-text{
+  margin-bottom: 70px;
+}
+
+
+.launchCard .details-icon{
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+}
+.launchCard .star-icon{
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+  padding: 8px;
+}
+
+
+/* -------------------LaunchDetails------------------ */
+
+.details{
+  color: white;
+  text-align: center; 
+}
+.details-heading{
+  margin: 30px auto 60px;
+}
+
+.details h1 {
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(45deg, #d7f1ff,#00508a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 0px auto;
+}
+
+.details h3 {
+  margin: 0 auto;
+  color:#cae7fc
+}
+
+.details-top-container{
+  position: relative;
+}
+
+
+.video-responsive {
+  overflow: hidden;
+  /* padding-bottom: 36.25%; */
+  position: relative;
+  
+}
+
+/* .video-responsive iframe {
+  right: 0;
+  top: 0;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  margin: 40px;
+} */
+
+.video-responsive iframe{
+  height: 480px;
+  width: 853px;
+}
+
+.details-string{
+  width: 40%;
+ 
+}
+
+/* --------------------footer------------------- */
+
+.footer{
+  display: inline-block;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.502);
+  margin: 0;
+  padding: 10px 0px;
+}
+
+.footer .icon{
+  color: white;
+  transition: all 0.5s;
+  margin: 0 20px;
+  opacity: 0.8;
+}
+
+.footer .icon:hover{
+  color: gray;
+}

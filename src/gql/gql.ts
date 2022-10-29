@@ -1,0 +1,18 @@
+/* eslint-disable */
+import * as types from './graphql.js';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+
+const documents = {
+    "\n  query spaceXLaunchesMain{\n    launchesPast(limit: 10) {\n        id\n        mission_name\n        launch_date_local\n        launch_site {\n            site_name_long\n        }\n        launch_success\n    }\n  }\n": types.SpaceXLaunchesMainDocument,
+    "\n  query spaceXLaunchesDetails ($id: ID!){\n        launch(id: $id) {\n            details\n            id\n            mission_name\n            launch_date_local\n            launch_site {\n              site_name_long\n            }\n            links {\n              article_link\n              video_link\n              flickr_images\n            }\n            rocket {\n              rocket_name\n              rocket_type\n              second_stage {\n                payloads {\n                  payload_type\n                  manufacturer\n                  customers\n                }\n              }\n            }\n            ships {\n              name\n              home_port\n              image\n            }\n          }\n        }\n": types.SpaceXLaunchesDetailsDocument,
+};
+
+export function graphql(source: "\n  query spaceXLaunchesMain{\n    launchesPast(limit: 10) {\n        id\n        mission_name\n        launch_date_local\n        launch_site {\n            site_name_long\n        }\n        launch_success\n    }\n  }\n"): (typeof documents)["\n  query spaceXLaunchesMain{\n    launchesPast(limit: 10) {\n        id\n        mission_name\n        launch_date_local\n        launch_site {\n            site_name_long\n        }\n        launch_success\n    }\n  }\n"];
+export function graphql(source: "\n  query spaceXLaunchesDetails ($id: ID!){\n        launch(id: $id) {\n            details\n            id\n            mission_name\n            launch_date_local\n            launch_site {\n              site_name_long\n            }\n            links {\n              article_link\n              video_link\n              flickr_images\n            }\n            rocket {\n              rocket_name\n              rocket_type\n              second_stage {\n                payloads {\n                  payload_type\n                  manufacturer\n                  customers\n                }\n              }\n            }\n            ships {\n              name\n              home_port\n              image\n            }\n          }\n        }\n"): (typeof documents)["\n  query spaceXLaunchesDetails ($id: ID!){\n        launch(id: $id) {\n            details\n            id\n            mission_name\n            launch_date_local\n            launch_site {\n              site_name_long\n            }\n            links {\n              article_link\n              video_link\n              flickr_images\n            }\n            rocket {\n              rocket_name\n              rocket_type\n              second_stage {\n                payloads {\n                  payload_type\n                  manufacturer\n                  customers\n                }\n              }\n            }\n            ships {\n              name\n              home_port\n              image\n            }\n          }\n        }\n"];
+
+export function graphql(source: string): unknown;
+export function graphql(source: string) {
+  return (documents as any)[source] ?? {};
+}
+
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;
