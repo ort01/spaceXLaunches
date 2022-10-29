@@ -9,7 +9,7 @@ export default function Favourites (props:any) {
     return(
         <div>
             {/* {arrayOfFavourites.filter() } */}
-            <i onClick={() => props.add(props.lauchId)}>{arrayOfFavourites.includes(props.lauchId)  ? <StarIcon/> : <StarBorderIcon/> }</i>
+            <i onClick={() => props.toggle(props.lauchId)}>{arrayOfFavourites.includes(props.lauchId)  ? <StarIcon sx={{color: "#ffdf76"}}/> : <StarBorderIcon/> }</i>
         </div>
     )
 }

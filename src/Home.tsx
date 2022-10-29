@@ -36,7 +36,7 @@ export default function Home(props:any) {
                     launchDate = {eachLaunch.launch_date_local}
                     launchSite = {eachLaunch.launch_site?.site_name_long}
                     launchSuccess = {eachLaunch.launch_success}
-                    add = {props.add}
+                    toggle = {props.toggle}
                     favourites= {props.favourites}
                 />    
               )

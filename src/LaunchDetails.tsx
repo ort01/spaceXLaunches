@@ -7,6 +7,7 @@ import { useQuery } from "urql";
 import { Launch } from './gql/graphql';
 import { spaceXLaunchesDetails } from "./spaceXQuery";
 import YoutubeEmbed from './iFrame';
+import Favourites from "./Favourites"
 
 
 export default function LaunchDetails(props: any) {
@@ -31,6 +32,7 @@ export default function LaunchDetails(props: any) {
                 <h1>{launch.mission_name}</h1>
                 <h3><CalendarMonthIcon/> {launch.launch_date_local}</h3>
                 <h3><LocationOnIcon/> {launch.launch_site?.site_name_long}</h3>
+                <Favourites lauchId={id} toggle={props.toggle} favourites={props.favourites}/>
             </div>
             <div className="details-top-container">
                 {videoID != undefined &&

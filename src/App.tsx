@@ -16,7 +16,7 @@ export default function App() {
 
   const [arrayOfFavourites, setListOfFavourites] = useState<number[]>([])
 
-  function addFavourite(newItemID: number) {
+  function toggleFavourite(newItemID: number) {
 
     if (arrayOfFavourites.includes(newItemID)) {
       setListOfFavourites((prevItems) => {
@@ -29,16 +29,17 @@ export default function App() {
       setListOfFavourites((prevItems) => {
         return [...prevItems, newItemID]
       })
-      console.log(newItemID);
+      
     }
+    console.log(arrayOfFavourites);
   }
 
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home add={addFavourite} favourites={arrayOfFavourites} />} />
-        <Route path="/:id" element={<LaunchDetails />} />
+        <Route path="/" element={<Home toggle={toggleFavourite} favourites={arrayOfFavourites} />} />
+        <Route path="/:id" element={<LaunchDetails toggle={toggleFavourite} favourites={arrayOfFavourites} />} />
       </Routes>
       <Footer />
     </Router>
