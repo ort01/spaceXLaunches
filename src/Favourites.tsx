@@ -2,17 +2,14 @@ import React, { useState } from "react"
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 
-export default function Favourites () {
+export default function Favourites (props:any) {
 
-    const [favourites, selectedFavourites] = useState(false)
-
-    function mark (){
-        selectedFavourites(!favourites)
-    }
+    const arrayOfFavourites = props.favourites
 
     return(
         <div>
-            <i onClick={mark}>{favourites ? <StarIcon/> : <StarBorderIcon/> }</i>
+            {/* {arrayOfFavourites.filter() } */}
+            <i onClick={() => props.add(props.lauchId)}>{arrayOfFavourites.includes(props.lauchId)  ? <StarIcon/> : <StarBorderIcon/> }</i>
         </div>
     )
 }

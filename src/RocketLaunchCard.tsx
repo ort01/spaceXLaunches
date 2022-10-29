@@ -28,7 +28,7 @@ function RocketLaunchCard (props: any) {
                 <Link to={"/" + props.id}><MoreHorizIcon sx={{color: "grey"}}/></Link>
             </IconButton>
             <div className="star-icon">
-                <Favourites/>
+                <Favourites lauchId={props.id} add={props.add} favourites={props.favourites}/>
             </div>
         </div>
     )

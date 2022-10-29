@@ -33,9 +33,11 @@ export default function LaunchDetails(props: any) {
                 <h3><LocationOnIcon/> {launch.launch_site?.site_name_long}</h3>
             </div>
             <div className="details-top-container">
-                <div className='links'>
-                    <YoutubeEmbed embedId={videoID} />
-                </div>
+                {videoID != undefined &&
+                    <div className='links'>
+                        <YoutubeEmbed embedId={videoID} />
+                    </div>
+                }   
                 <div className='details-string'>
                     <p>{launch.details}</p>
                 </div>

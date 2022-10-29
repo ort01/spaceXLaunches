@@ -30,16 +30,17 @@ body{
   color: #cae9ff;
 }
 
-.show-favourites{
+svg.show-favourites{
   position: absolute;
   top: 15px;
   right: 15px;
-  color:#9ed6fe;
+  color:#76c6ff;
   opacity: 0.7;
-  transition: all 1s;
+  transition: all 0.5s;
+  cursor: pointer;
 }
-.show-favourites:hover{
-  color: #d2eafb;
+svg.show-favourites:hover{
+  color: #e5f3fc;
   opacity: 1;
 }
 
@@ -55,7 +56,7 @@ body{
   justify-content: center;
   gap: 60px;
   margin: 60px auto;
-  width: fit-content;
+  /* width: fit-content; */
   padding: 10px;
 }
 
