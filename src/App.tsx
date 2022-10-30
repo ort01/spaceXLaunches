@@ -4,44 +4,47 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import FavouritesContext from "./FavoritesContext";
 
 import Footer from './Footer';
 import Header from "./Header";
 import Home from "./Home";
 import LaunchDetails from "./LaunchDetails";
-
-
+import ShowFavourites from "./ShowFavourites";
 
 export default function App() {
 
-  const [arrayOfFavourites, setListOfFavourites] = useState<number[]>([])
+
+  const [arrayOfFavourites, setArrayOfFavorites] = useState<number[]>([])
 
   function toggleFavourite(newItemID: number) {
 
     if (arrayOfFavourites.includes(newItemID)) {
-      setListOfFavourites((prevItems) => {
+      setArrayOfFavorites((prevItems) => {
         return prevItems.filter((itemID) => {
           return itemID != newItemID
         })
       })
 
     } else {
-      setListOfFavourites((prevItems) => {
+      setArrayOfFavorites((prevItems) => {
         return [...prevItems, newItemID]
       })
-      
+
     }
-    console.log(arrayOfFavourites);
   }
 
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home toggle={toggleFavourite} favourites={arrayOfFavourites} />} />
-        <Route path="/:id" element={<LaunchDetails toggle={toggleFavourite} favourites={arrayOfFavourites} />} />
-      </Routes>
-      <Footer />
+      <FavouritesContext.Provider value={[arrayOfFavourites, toggleFavourite]}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<LaunchDetails />} />
+          <Route path="/favourites" element={<ShowFavourites />} />
+        </Routes>
+        <Footer />
+      </FavouritesContext.Provider>
     </Router>
   )
 }

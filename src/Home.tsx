@@ -1,9 +1,9 @@
-import { useQuery } from 'urql';
-import RocketLaunchCard from "./RocketLaunchCard";
-import {spaceXLaunchesMain} from "./spaceXQuery";
-import { Launch } from './gql/graphql';
-import {Carousel} from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useQuery } from 'urql';
+import { Launch } from './gql/graphql';
+import Loading from './Loading';
+import RocketLaunchCard from "./RocketLaunchCard";
+import { spaceXLaunchesMain } from "./spaceXQuery";
 
  
 export default function Home(props:any) {
@@ -13,7 +13,7 @@ export default function Home(props:any) {
 
   const { data, fetching, error } = result;
 
-  if (fetching) return <p>Loading...</p>
+  if (fetching) return <Loading/>
   if (error) return <pre>{error.message}</pre>
  
   // const breakPoints = [
@@ -36,8 +36,6 @@ export default function Home(props:any) {
                     launchDate = {eachLaunch.launch_date_local}
                     launchSite = {eachLaunch.launch_site?.site_name_long}
                     launchSuccess = {eachLaunch.launch_success}
-                    toggle = {props.toggle}
-                    favourites= {props.favourites}
                 />    
               )
             })}

@@ -1,6 +1,7 @@
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import { Link, useNavigate } from "react-router-dom";
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
+
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
 
@@ -8,7 +9,7 @@ export default function Header() {
     return (
         <div className="header">
             <h1 onClick={()=>{navigate("/")}}> SpaceX Launch <RocketLaunchIcon sx={{fontSize: 40}}/></h1>
-            <StarBorderIcon className='show-favourites' sx={{fontSize: 35}}/>
+            <p onClick={()=>{navigate("/favourites")}} className='show-favourites'><StarIcon sx={{fontSize: 15}}/> Show Favourites</p>
         </div>
     )
 }
