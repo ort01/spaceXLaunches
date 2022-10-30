@@ -7,6 +7,26 @@ import Loading from './Loading';
 import RocketLaunchCard from './RocketLaunchCard';
 import { spaceXLaunchesMain } from "./spaceXQuery";
 
+
+
+function renderFavourites (data:any, arrayOfFavourites:number[]) {
+    if (arrayOfFavourites.length === 0) {
+        return <h2>No Favourites Found</h2>
+    } else {
+    return data?.launchesPast?.map((eachLaunch: Launch) => {
+        if (arrayOfFavourites.includes(eachLaunch.id)) {
+            return (
+                <RocketLaunchCard
+                missionName = {eachLaunch.mission_name}
+                key= {eachLaunch.id}
+                id = {eachLaunch.id}
+                launchDate = {eachLaunch.launch_date_local}
+                launchSite = {eachLaunch.launch_site?.site_name_long}
+            /> 
+        )}})
+    }}
+
+
 export default function ShowFavourites (props:any) {
 
         const [arrayOfFavourites, toggleFavourite] = useContext(FavouritesContext)
@@ -22,19 +42,7 @@ export default function ShowFavourites (props:any) {
           return (
               <div className="show-favourites">
                   <div className="body">
-                    {data?.launchesPast?.map((eachLaunch: Launch) => {
-                        if (arrayOfFavourites.includes(eachLaunch.id)) {
-                            return (
-                                <RocketLaunchCard
-                                missionName = {eachLaunch.mission_name}
-                                key= {eachLaunch.id}
-                                id = {eachLaunch.id}
-                                launchDate = {eachLaunch.launch_date_local}
-                                launchSite = {eachLaunch.launch_site?.site_name_long}
-                                launchSuccess = {eachLaunch.launch_success}
-                            /> 
-                        )}})
-                    }
+                    {renderFavourites(data, arrayOfFavourites)}
                   </div>
               </div>
           )

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,22 +17,48 @@ export default function App() {
 
   const [arrayOfFavourites, setArrayOfFavorites] = useState<number[]>([])
 
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites")
+    if (storedFavorites){
+      setArrayOfFavorites(JSON.parse(storedFavorites))
+    }
+  }, [])
+  
+
   function toggleFavourite(newItemID: number) {
 
+    var newArrayOfFavorites: number[]
+
     if (arrayOfFavourites.includes(newItemID)) {
-      setArrayOfFavorites((prevItems) => {
-        return prevItems.filter((itemID) => {
-          return itemID != newItemID
-        })
+      newArrayOfFavorites = arrayOfFavourites.filter((itemID) => {
+        return itemID != newItemID
       })
 
     } else {
-      setArrayOfFavorites((prevItems) => {
-        return [...prevItems, newItemID]
-      })
-
+      newArrayOfFavorites = [...arrayOfFavourites, newItemID]
     }
+
+    localStorage.setItem('favorites', JSON.stringify(newArrayOfFavorites))
+    setArrayOfFavorites(newArrayOfFavorites)
   }
+
+  // function toggleFavourite(newItemID: number) {
+
+  //   if (arrayOfFavourites.includes(newItemID)) {
+  //     setArrayOfFavorites((prevItems) => {
+  //       return prevItems.filter((itemID) => {
+  //         return itemID != newItemID
+  //       })
+  //     })
+
+  //   } else {
+  //     setArrayOfFavorites((prevItems) => {
+  //       return [...prevItems, newItemID]
+  //     })
+
+  //   }
+  // }
 
   return (
     <Router>
