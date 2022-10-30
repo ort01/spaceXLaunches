@@ -10,6 +10,7 @@ import { spaceXLaunchesDetails } from "./spaceXQuery";
 import YoutubeEmbed from './iFrame';
 import Favourites from "./Favourites"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import Loading from './Loading';
 
 
 export default function LaunchDetails(props: any) {
@@ -23,7 +24,7 @@ export default function LaunchDetails(props: any) {
 
     const { data, fetching, error } = result;
 
-    if (fetching) return <p>Loading...</p>
+    if (fetching) return <Loading/>
     if (error) return <pre>{error.message}</pre>
 
     const launch: Launch = data.launch
@@ -31,7 +32,7 @@ export default function LaunchDetails(props: any) {
     const [payloads] = launch.rocket?.second_stage?.payloads
     const { payload_type, manufacturer, customers } = payloads
     const images = launch.links?.flickr_images
-    const { name, home_port, image } = launch.ships?.[0] || {}
+    const { name: shipName, home_port: shipHomePort, image: shipImage } = launch.ships?.[0] || {}
     const [date, time] = launch.launch_date_local.split("T")
 
 
@@ -92,15 +93,15 @@ export default function LaunchDetails(props: any) {
                         <tbody>
                             <tr>
                                 <td>Name of the ship: </td>
-                                <td style={{ fontStyle: "italic", textAlign: 'left', fontSize: 30 }}>{name}</td>
+                                <td style={{ fontStyle: "italic", textAlign: 'left', fontSize: 30 }}>{shipName}</td>
                             </tr>
                             <tr>
                                 <td>Home port of the ship: </td>
-                                <td style={{ fontStyle: "italic", textAlign: 'left', fontSize: 30 }}>{home_port}</td>
+                                <td style={{ fontStyle: "italic", textAlign: 'left', fontSize: 30 }}>{shipHomePort}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <img src={image} alt="spaceX_ship" />
+                    <img src={shipImage} alt="spaceX_ship" />
                 </div>
             }
 

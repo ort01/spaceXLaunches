@@ -20,21 +20,21 @@ export default function ShowFavourites (props:any) {
           if (error) return <pre>{error.message}</pre>
 
           return (
-              <div className="container">
-                  <div className="container-body">
-                    {arrayOfFavourites.map((id: number) => {
-                      return (data?.launchesPast?.filter((eachLaunch: Launch)=> {
-                        return (
-                            <RocketLaunchCard
-                            missionName = {id.mission_name}
-                            key= {eachLaunch.id}
-                            id = {eachLaunch.id}
-                            launchDate = {eachLaunch.launch_date_local}
-                            launchSite = {eachLaunch.launch_site?.site_name_long}
-                            launchSuccess = {eachLaunch.launch_success}
-                        /> 
-                        )}))
-                    })}
+              <div className="show-favourites">
+                  <div className="body">
+                    {data?.launchesPast?.map((eachLaunch: Launch) => {
+                        if (arrayOfFavourites.includes(eachLaunch.id)) {
+                            return (
+                                <RocketLaunchCard
+                                missionName = {eachLaunch.mission_name}
+                                key= {eachLaunch.id}
+                                id = {eachLaunch.id}
+                                launchDate = {eachLaunch.launch_date_local}
+                                launchSite = {eachLaunch.launch_site?.site_name_long}
+                                launchSuccess = {eachLaunch.launch_success}
+                            /> 
+                        )}})
+                    }
                   </div>
               </div>
           )

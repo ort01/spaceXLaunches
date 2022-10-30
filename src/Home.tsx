@@ -24,8 +24,8 @@ export default function Home(props:any) {
   // ]
   
   return (
-      <div className="container">
-          <div className="container-body">
+      <div className="home">
+          <div className="body">
             {/* <Carousel breakPoints={breakPoints}> */}
             {data?.launchesPast?.map((eachLaunch: Launch, index: number) => {
               return ( 
