@@ -19,6 +19,7 @@ export default function Home(props:any) {
   if (fetching) return <Loading/>
   if (error) return <pre>{error.message}</pre>
 
+
   function getCard () {
     return data?.launchesPast?.map((eachLaunch: Launch, index: number) => {
       return ( 

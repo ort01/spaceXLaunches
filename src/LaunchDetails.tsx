@@ -10,6 +10,7 @@ import { spaceXLaunchesDetails } from "./spaceXQuery";
 import YoutubeEmbed from './iFrame';
 import FunctionalityOfFavourite from "./FunctionalityOfFavourite"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import Loading from './Loading';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -61,10 +62,13 @@ export default function LaunchDetails(props: any) {
             <div className="star">
                 <FunctionalityOfFavourite lauchId={id} />
             </div>
-            <div className="heading">
+            <div className="heading"> 
                 <h1>{launch.mission_name}</h1>
-                <h3><CalendarMonthIcon /> {date} <br /> {time}</h3>
-                <h3><LocationOnIcon /> {launch.launch_site?.site_name_long}</h3>
+                <div className='date-time'>
+                    <h3><CalendarMonthIcon sx={{paddingRight: 1}}/> {date}</h3>
+                    <h3><AccessTimeFilledIcon sx={{paddingRight: 1}}/> {time}</h3>
+                    <h3><LocationOnIcon sx={{paddingRight: 1}}/> {launch.launch_site?.site_name_long}</h3>
+                </div>
             </div>
             <div className="top-container">
                 {videoID != undefined &&
