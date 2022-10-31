@@ -3,7 +3,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useContext } from 'react';
 import FavouritesContext from './FavoritesContext';
 
-export default function Favourites (props:any) {
+export default function FunctionalityOfFavourite (props:any) {
 
     const [ arrayOfFavourites, toggleFavourite ] = useContext(FavouritesContext)
 

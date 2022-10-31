@@ -8,9 +8,12 @@ import { useQuery } from "urql";
 import { Launch } from './gql/graphql';
 import { spaceXLaunchesDetails } from "./spaceXQuery";
 import YoutubeEmbed from './iFrame';
-import Favourites from "./Favourites"
+import FunctionalityOfFavourite from "./FunctionalityOfFavourite"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Loading from './Loading';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 export default function LaunchDetails(props: any) {
@@ -36,11 +39,27 @@ export default function LaunchDetails(props: any) {
     const [date, time] = launch.launch_date_local.split("T")
 
 
+    function renderImages (){
+        return images?.slice(0, 8).map((img) => {
+            return <div className='launch-details-img'><img src={img} alt="spaceX_launch_img" /></div>
+        })
+    }
+    
+    var sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: screen.width > screen.height ? 2 : 1,
+        slidesToScroll: 1,
+        arrows: true,
+        autoplay: true,
+      };
+
     return (
         <div className="details">
             <KeyboardBackspaceIcon onClick={() => { navigate("/") }} className='back' sx={{ fontSize: 35 }} />
             <div className="star">
-                <Favourites lauchId={id} />
+                <FunctionalityOfFavourite lauchId={id} />
             </div>
             <div className="heading">
                 <h1>{launch.mission_name}</h1>
@@ -76,17 +95,18 @@ export default function LaunchDetails(props: any) {
                         </tbody>
                     </table>
                 </div>
-                <div className='images'>
-                    {images?.slice(0, 8).map((img) => {
-                        return <img src={img} alt="spaceX_img" />
-                    })}
-                </div>
+                {(images || []).length > 0 && 
+                <Slider {...sliderSettings} className="details-slider">
+                    {renderImages()}
+                </Slider>
+                }
             </div>
-            <div className='ships-text'>
+                {(launch.ships || []).length > 0 &&
+                <div className='ships-text'>
                 <p>SpaceX charters a fleet of marine vessels to support their offshore recovery program. All vessels are highly specialized for their roles, whether it be landing Falcon 9 rockets, recovering payload fairings, or retrieving astronauts after their Dragon capsule lands in the ocean after a trip to space.</p>
-            </div>
-            {
-                (launch.ships?.length || 0) > 0 &&
+                </div> }
+            
+            {(launch.ships?.length || 0) > 0 &&
                 <div className='lower-container'>
 
                     <table>

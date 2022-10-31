@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Favourites from "./Favourites";
+import FunctionalityOfFavourite from "./FunctionalityOfFavourite";
 
 
 function RocketLaunchCard(props: any) {
@@ -20,7 +20,7 @@ function RocketLaunchCard(props: any) {
                 <p><LocationOnIcon /><br />{props.launchSite}</p>
             </div>
             <div className="launchCard-star">
-                <Favourites lauchId={props.id} />
+                <FunctionalityOfFavourite lauchId={props.id} />
             </div>
         </div>
     )
