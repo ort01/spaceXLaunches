@@ -1,24 +1,24 @@
-.footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    position: relative;
-    width: 100%;
-    color: white;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.502);
-    height: 40px;
-    color:#7ac8ff;
-  }
-  
-  .footer .icon{
-    color:#7ac8ff;
-    transition: all 0.5s;
-    opacity: 0.8;
-  }
-  
-  .footer .icon:hover{
-    color: rgb(208, 240, 255);
-    transform: scale(1.1);
-  }
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.502);
+  height: 40px;
+  color: #7ac8ff;
+}
+
+.footer .icon {
+  color: #7ac8ff;
+  transition: all 0.5s;
+  opacity: 0.8;
+}
+
+.footer .icon:hover {
+  color: rgb(208, 240, 255);
+  transform: scale(1.1);
+}

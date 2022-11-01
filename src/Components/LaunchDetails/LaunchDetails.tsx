@@ -47,8 +47,7 @@ export default function LaunchDetails(props: any) {
 
     const launch: Launch = data.launch
     const videoID = launch.links?.video_link?.substring(16)
-    const [payloads] = launch.rocket?.second_stage?.payloads
-    const { payload_type, manufacturer, customers } = payloads
+    const payloads = launch.rocket?.second_stage?.payloads
     const images = launch.links?.flickr_images
     const { name: shipName, home_port: shipHomePort, image: shipImage } = launch.ships?.[0] || {}
     const [date, time] = launch.launch_date_local.split("T")
@@ -56,7 +55,7 @@ export default function LaunchDetails(props: any) {
 
     function renderImages (){
         return images?.slice(0, 8).map((img) => {
-            return <div className='launch-details-img'><img src={img} alt="spaceX_launch_img" /></div>
+            return img && <div className='launch-details-img'><img src={img} alt="spaceX_launch_img" /></div>
         })
     }
     
@@ -92,26 +91,26 @@ export default function LaunchDetails(props: any) {
             </div>
             <div className='middle-container'>
                 <div style={{overflowX: "auto"}}>
-                    <table>
+                    {payloads && <table>
                         <thead>
                             <tr>
                                 <th>Rocket Name</th>
                                 <th>Rocket Type</th>
-                                <th>Payload Type</th>
-                                <th>Manufacturer</th>
-                                <th>Customer</th>
+                                {payloads && <th>Payload Type</th>}
+                                {payloads && <th>Manufacturer</th>}
+                                {payloads && <th>Customer</th>}
                             </tr>
                         </thead>
                         <tbody>
                             <tr style={{ fontStyle: "italic" }}>
                                 <td>{launch.rocket?.rocket_name}</td>
                                 <td>{launch.rocket?.rocket_type}</td>
-                                <td>{payload_type}</td>
-                                <td>{manufacturer}</td>
-                                <td>{customers[0]}</td>
+                                <td>{payloads[0]?.payload_type}</td>
+                                <td>{payloads[0]?.manufacturer}</td>
+                                <td>{payloads[0]?.customers && payloads[0]?.customers[0]}</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table>}
                 </div>
                 {(images || []).length > 0 && 
                 <Slider {...sliderSettings} className="details-slider">
@@ -139,7 +138,7 @@ export default function LaunchDetails(props: any) {
                             </tr>
                         </tbody>
                     </table>
-                    <img src={shipImage} alt="spaceX_ship" />
+                    {shipImage && <img src={shipImage} alt="spaceX_ship" />}
                 </div>
             }
 

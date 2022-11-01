@@ -10,41 +10,44 @@ import { spaceXLaunchesMain } from "../../Query/spaceXQuery";
 
 
 
-function renderFavourites (data:any, arrayOfFavourites:number[]) {
+function renderFavourites(data: any, arrayOfFavourites: number[]) {
     if (arrayOfFavourites.length === 0) {
         return <h2>No Favourites Found</h2>
     } else {
-    return data?.launchesPast?.map((eachLaunch: Launch) => {
-        if (arrayOfFavourites.includes(eachLaunch.id)) {
-            return (
-                <RocketLaunchCard
-                missionName = {eachLaunch.mission_name}
-                key= {eachLaunch.id}
-                id = {eachLaunch.id}
-                launchDate = {eachLaunch.launch_date_local}
-                launchSite = {eachLaunch.launch_site?.site_name_long}
-            /> 
-        )}})
-    }}
+        return data?.launchesPast?.map((eachLaunch: Launch) => {
+            if (eachLaunch.id && arrayOfFavourites.includes(Number(eachLaunch.id))) {
+                return (
+                    <RocketLaunchCard
+                        missionName={eachLaunch.mission_name}
+                        key={eachLaunch.id}
+                        id={eachLaunch.id}
+                        launchDate={eachLaunch.launch_date_local}
+                        launchSite={eachLaunch.launch_site?.site_name_long}
+                    />
+                )
+            }
+        })
+    }
+}
 
 
-export default function ShowFavourites (props:any) {
+export default function ShowFavourites(props: any) {
 
-        const [arrayOfFavourites, toggleFavourite] = useContext(FavouritesContext)
-        const [result] = useQuery({
-            query: spaceXLaunchesMain,
-          });
-        
-          const { data, fetching, error } = result;
-        
-          if (fetching) return <Loading/>
-          if (error) return <pre>{error.message}</pre>
+    const [arrayOfFavourites, toggleFavourite] = useContext(FavouritesContext)
+    const [result] = useQuery({
+        query: spaceXLaunchesMain,
+    });
 
-          return (
-              <div className="show-favourites">
-                  <div className="body">
-                    {renderFavourites(data, arrayOfFavourites)}
-                  </div>
-              </div>
-          )
-        }
+    const { data, fetching, error } = result;
+
+    if (fetching) return <Loading />
+    if (error) return <pre>{error.message}</pre>
+
+    return (
+        <div className="show-favourites">
+            <div className="body">
+                {renderFavourites(data, arrayOfFavourites)}
+            </div>
+        </div>
+    )
+}

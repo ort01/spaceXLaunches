@@ -20,11 +20,11 @@ export default function App() {
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites")
-    if (storedFavorites){
+    if (storedFavorites) {
       setArrayOfFavorites(JSON.parse(storedFavorites))
     }
   }, [])
-  
+
 
   function toggleFavourite(newItemID: number) {
 

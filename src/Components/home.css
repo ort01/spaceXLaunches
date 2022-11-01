@@ -1,18 +1,18 @@
 .home {
-    color: rgb(199, 199, 199);
-  }
-  
-  .home .body{
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 60px;
-    padding: 10px;
-  }
-  
-  .home-slider{
-    width: 80%;
-    margin: 0px auto;
-    padding: 50px 0px;
-  }
+  color: rgb(199, 199, 199);
+}
+
+.home .body {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  padding: 10px;
+}
+
+.home-slider {
+  width: 80%;
+  margin: 0px auto;
+  padding: 50px 0px;
+}
