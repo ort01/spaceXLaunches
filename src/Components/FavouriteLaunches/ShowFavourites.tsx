@@ -10,12 +10,12 @@ import { spaceXLaunchesMain } from "../../Query/spaceXQuery";
 
 
 
-function renderFavourites(data: any, arrayOfFavourites: number[]) {
+function renderFavourites(data: any, arrayOfFavourites: string[]) {
     if (arrayOfFavourites.length === 0) {
         return <h2>No Favourites Found</h2>
     } else {
         return data?.launchesPast?.map((eachLaunch: Launch) => {
-            if (eachLaunch.id && arrayOfFavourites.includes(Number(eachLaunch.id))) {
+            if (eachLaunch.id && arrayOfFavourites.includes(eachLaunch.id)) {
                 return (
                     <RocketLaunchCard
                         missionName={eachLaunch.mission_name}
