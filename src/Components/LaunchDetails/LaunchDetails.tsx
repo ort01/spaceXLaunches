@@ -23,6 +23,11 @@ import Slider from "react-slick";
 export default function LaunchDetails(props: any) {
 
     let { id } = useParams()
+    if (id == undefined){
+        return <div className="details">
+            Invalid ID provided
+        </div>
+    }
     const navigate = useNavigate()
     const [result] = useQuery({
         query: spaceXLaunchesDetails,
@@ -33,6 +38,12 @@ export default function LaunchDetails(props: any) {
 
     if (fetching) return <Loading/>
     if (error) return <pre>{error.message}</pre>
+
+    if (data == undefined || data.launch == undefined){
+        return <div className="details">
+            No data returned :(
+        </div>
+    }
 
     const launch: Launch = data.launch
     const videoID = launch.links?.video_link?.substring(16)
