@@ -5,7 +5,7 @@ body{
   background-image: url("/pictures/actionvance-t7EL2iG3jMc-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: 100% 130%;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   margin: 0;
   background-attachment: fixed;

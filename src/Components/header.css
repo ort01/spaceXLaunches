@@ -1,3 +1,4 @@
+
 .header{
     color: white;
     position: relative;
@@ -33,3 +34,33 @@
     color: #c7e9ff;
     opacity: 1;
   }
+
+
+  @media screen and ((min-width:400px) and (max-width: 600px)) {
+    .header h1{
+        font-size: 20px;
+    }
+    .header .show-favourites-button{
+        font-size: 10px;
+    }
+}
+
+@media screen and ((min-width:300px) and (max-width: 400px)) {
+    .header h1{
+        font-size: 16px;
+    }
+    .header .show-favourites-button{
+        font-size: 8px;
+        margin-top: 5px;
+    }
+}
+
+@media screen and ((min-width:0) and (max-width: 300px)) {
+    .header h1{
+        font-size: 12px;
+    }
+    .header .show-favourites-button{
+        font-size: 5px;
+        margin-top: 7px;
+    }
+}

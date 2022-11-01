@@ -80,7 +80,7 @@ export default function LaunchDetails(props: any) {
                 <p className='text'>{launch.details}</p>
             </div>
             <div className='middle-container'>
-                <div>
+                <div style={{overflowX: "auto"}}>
                     <table>
                         <thead>
                             <tr>

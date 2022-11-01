@@ -43,23 +43,6 @@ export default function App() {
     setArrayOfFavorites(newArrayOfFavorites)
   }
 
-  // function toggleFavourite(newItemID: number) {
-
-  //   if (arrayOfFavourites.includes(newItemID)) {
-  //     setArrayOfFavorites((prevItems) => {
-  //       return prevItems.filter((itemID) => {
-  //         return itemID != newItemID
-  //       })
-  //     })
-
-  //   } else {
-  //     setArrayOfFavorites((prevItems) => {
-  //       return [...prevItems, newItemID]
-  //     })
-
-  //   }
-  // }
-
   return (
     <Router>
       <FavouritesContext.Provider value={[arrayOfFavourites, toggleFavourite]}>
