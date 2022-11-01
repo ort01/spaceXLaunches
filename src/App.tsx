@@ -4,13 +4,13 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import FavouritesContext from "./FavoritesContext";
+import FavouritesContext from "./Components/FavouriteLaunches/FavoritesContext";
 
-import Footer from './Footer';
-import Header from "./Header";
-import Home from "./Home";
-import LaunchDetails from "./LaunchDetails";
-import ShowFavourites from "./ShowFavourites";
+import Footer from './Components/Footer';
+import Header from "./Components/Header";
+import Home from "./Components/Home";
+import LaunchDetails from "./Components/LaunchDetails/LaunchDetails";
+import ShowFavourites from "./Components/FavouriteLaunches/ShowFavourites";
 
 export default function App() {
 
@@ -64,11 +64,13 @@ export default function App() {
     <Router>
       <FavouritesContext.Provider value={[arrayOfFavourites, toggleFavourite]}>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<LaunchDetails />} />
-          <Route path="/favourites" element={<ShowFavourites />} />
-        </Routes>
+        <div id="content-body">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:id" element={<LaunchDetails />} />
+            <Route path="/favourites" element={<ShowFavourites />} />
+          </Routes>
+        </div>
         <Footer />
       </FavouritesContext.Provider>
     </Router>

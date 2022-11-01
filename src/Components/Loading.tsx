@@ -1,3 +1,4 @@
+import "./loading.css"
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 export default function Loading () {

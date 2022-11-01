@@ -1,7 +1,10 @@
+import "./header.css"
+
+import { useNavigate } from "react-router-dom";
+
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import StarIcon from '@mui/icons-material/Star';
 
-import { useNavigate } from "react-router-dom";
 
 export default function Header() {
 

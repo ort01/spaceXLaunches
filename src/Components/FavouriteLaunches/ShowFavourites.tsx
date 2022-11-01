@@ -1,11 +1,12 @@
+import "./showFavourites.css"
 import { useContext } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useQuery } from 'urql';
 import FavouritesContext from './FavoritesContext';
-import { Launch } from './gql/graphql';
-import Loading from './Loading';
-import RocketLaunchCard from './RocketLaunchCard';
-import { spaceXLaunchesMain } from "./spaceXQuery";
+import { Launch } from '../../gql/graphql';
+import Loading from '../Loading';
+import RocketLaunchCard from '../LaunchCard';
+import { spaceXLaunchesMain } from "../../Query/spaceXQuery";
 
 
 

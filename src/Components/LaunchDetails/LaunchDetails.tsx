@@ -1,20 +1,24 @@
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import "./launchDetails.css"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import {
     useParams,
     useNavigate
 } from "react-router-dom";
 import { useQuery } from "urql";
-import { Launch } from './gql/graphql';
-import { spaceXLaunchesDetails } from "./spaceXQuery";
+import { Launch } from '../../gql/graphql';
+import { spaceXLaunchesDetails } from "../../Query/spaceXQuery";
+
 import YoutubeEmbed from './iFrame';
-import FunctionalityOfFavourite from "./FunctionalityOfFavourite"
+import FunctionalityOfFavourite from "../FavouriteLaunches/FunctionalityOfFavourite"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import Loading from './Loading';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import Loading from '../Loading';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 
 
 export default function LaunchDetails(props: any) {

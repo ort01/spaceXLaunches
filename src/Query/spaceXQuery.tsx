@@ -1,4 +1,4 @@
-import { graphql } from '../src/gql'
+import { graphql } from '../gql'
 
 const spaceXLaunchesMain = graphql(`
   query spaceXLaunchesMain{

@@ -1,9 +1,10 @@
+import "./launchCard.css"
 import { useNavigate } from "react-router-dom";
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import FunctionalityOfFavourite from "./FunctionalityOfFavourite";
+import FunctionalityOfFavourite from "./FavouriteLaunches/FunctionalityOfFavourite";
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
 

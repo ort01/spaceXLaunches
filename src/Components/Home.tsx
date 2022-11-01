@@ -1,12 +1,13 @@
-
-import { useQuery } from 'urql';
-import { Launch } from './gql/graphql';
-import Loading from './Loading';
-import RocketLaunchCard from "./RocketLaunchCard";
-import { spaceXLaunchesMain } from "./spaceXQuery";
-import Slider from "react-slick";
+import "./home.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { useQuery } from 'urql';
+import { Launch } from '../gql/graphql';
+import { spaceXLaunchesMain } from "../Query/spaceXQuery";
+import Loading from './Loading';
+import RocketLaunchCard from "./LaunchCard";
+import Slider from "react-slick";
 
  
 export default function Home(props:any) {
@@ -21,7 +22,7 @@ export default function Home(props:any) {
 
 
   function getCard () {
-    return data?.launchesPast?.map((eachLaunch: Launch, index: number) => {
+    return data?.launchesPast?.map((eachLaunch: Launch) => {
       return ( 
         <div className="home">
           <div className="body">

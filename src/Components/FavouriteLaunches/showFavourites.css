@@ -1,0 +1,13 @@
+.show-favourites {
+    color: rgb(199, 199, 199);
+    min-height: 100%;
+    padding: 60px 0px;
+  } 
+  
+  .show-favourites .body{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 52px;
+  }
