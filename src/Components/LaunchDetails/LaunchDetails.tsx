@@ -9,7 +9,6 @@ import {
 import { useQuery } from "urql";
 import { Launch } from '../../gql/graphql';
 import { spaceXLaunchesDetails } from "../../Query/spaceXQuery";
-
 import YoutubeEmbed from './iFrame';
 import FunctionalityOfFavourite from "../FavouriteLaunches/FunctionalityOfFavourite"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';

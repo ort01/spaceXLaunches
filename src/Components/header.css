@@ -19,7 +19,7 @@
     color: #cae9ff;
   }
   
-  .show-favourites-link{
+  .header .show-favourites-button{
     position: absolute;
     top: 15px;
     right: 15px;
@@ -29,7 +29,7 @@
     cursor: pointer;
     text-align: center;
   }
-  .show-favourites-link:hover{
-    color: #e5f3fc;
+  .header .show-favourites-button:hover{
+    color: #c7e9ff;
     opacity: 1;
   }
