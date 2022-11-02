@@ -17,6 +17,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Loading from '../Loading';
 import Slider from "react-slick";
+import { useWindowSize } from "../utils";
 
 
 
@@ -33,6 +34,8 @@ export default function LaunchDetails(props: any) {
         query: spaceXLaunchesDetails,
         variables: { id: id }
     });
+
+    const [width, height] = useWindowSize()
 
     const { data, fetching, error } = result;
 
@@ -63,7 +66,7 @@ export default function LaunchDetails(props: any) {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: screen.width > screen.height ? 2 : 1,
+        slidesToShow: width > height ? 2 : 1,
         slidesToScroll: 1,
         arrows: true,
         autoplay: true,

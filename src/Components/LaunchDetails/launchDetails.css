@@ -189,7 +189,7 @@ td {
 
 
 
-@media screen and ((min-width:0) and (max-width: 300px)) {
+@media screen and ((min-width:0) and (max-width: 300px))  {
   .details .heading h1 {
     font-size: 30px;
     padding: 0 8px;
@@ -268,7 +268,7 @@ td {
   }
 }
 
-@media screen and ((min-width:300px) and (max-width: 400px)) {
+@media screen and ((min-width:300px) and (max-width: 400px))  {
   .details .heading h1 {
     font-size: 40px;
     padding: 0 8px;
@@ -347,7 +347,7 @@ td {
   }
 }
 
-@media screen and ((min-width:400px) and (max-width: 800px)) {
+@media screen and ((min-width:400px) and (max-width: 800px))  {
   .details .heading h1 {
     font-size: 50px;
     padding: 0 15px;
@@ -426,7 +426,7 @@ td {
   }
 }
 
-@media screen and ((min-width:800px) and (max-width: 1000px)) {
+@media screen and ((min-width:800px) and (orientation:portrait)) {
   .details .heading h1 {
     font-size: 55px;
     padding: 0 8px;

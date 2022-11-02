@@ -8,6 +8,7 @@ import { spaceXLaunchesMain } from "../Query/spaceXQuery";
 import Loading from './Loading';
 import RocketLaunchCard from "./LaunchCard";
 import Slider from "react-slick";
+import { useWindowSize } from "./utils";
 
 
 export default function Home(props: any) {
@@ -15,13 +16,15 @@ export default function Home(props: any) {
     query: spaceXLaunchesMain,
   });
 
+  const [width, height] = useWindowSize()
+
   const { data, fetching, error } = result;
 
   if (fetching) return <Loading />
   if (error) return <pre>{error.message}</pre>
 
 
-  function getCard() {
+  function getCards() {
     return data?.launchesPast?.map((eachLaunch) => {
       return (
         eachLaunch && <div className="home">
@@ -44,7 +47,7 @@ export default function Home(props: any) {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: screen.width > screen.height ? 3 : 1,
+    slidesToShow: width > height ? 3 : 1,
     slidesToScroll: 1,
     arrows: true,
     autoplay: true
@@ -52,7 +55,7 @@ export default function Home(props: any) {
 
   return (
     <Slider {...sliderSettings} className="home-slider">
-      {getCard()}
+      {getCards()}
     </Slider>
   );
 }

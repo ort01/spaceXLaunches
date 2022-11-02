@@ -12,7 +12,7 @@
   gap: 52px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px)  {
   .show-favourites {
     margin: 0 15px;
   }
